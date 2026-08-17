@@ -1,0 +1,8 @@
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
+const experiencePoints = ["Análisis y resolución de problemas", "Comprensión de procesos de negocio", "Trabajo con bases de datos SQL", "Análisis de errores y comportamiento de aplicaciones", "Comunicación con usuarios", "Colaboración con equipos técnicos", "Seguimiento de problemas hasta su resolución"];
+
+export function ExperienceSection() {
+  return <section className="border-y border-line bg-surface py-20 sm:py-28"><Container><div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-24"><SectionHeading eyebrow="Experiencia" title="Experiencia trabajando con software en producción" description="Trabajé en Grupo Aoniken, una empresa que brinda software de gestión para estaciones de servicio." /><div><p className="text-base leading-8 text-muted sm:text-lg">El sistema permite gestionar diferentes áreas de la operación de una estación de servicio, incluyendo procesos relacionados con la venta de combustibles y la gestión del shop. Trabajar con software utilizado diariamente por clientes reales me ayudó a entender el impacto que tienen los problemas y la importancia de seguirlos hasta encontrar una solución.</p><p className="mt-5 text-base leading-8 text-muted sm:text-lg">Esa experiencia forma parte de la manera en que desarrollo hoy: con atención al contexto, a los datos y a las personas que necesitan que el sistema funcione.</p><ul className="mt-8 grid gap-3 sm:grid-cols-2">{experiencePoints.map((point) => <li key={point} className="flex gap-3 text-sm leading-6 text-ink"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{point}</li>)}</ul></div></div></Container></section>;
+}
