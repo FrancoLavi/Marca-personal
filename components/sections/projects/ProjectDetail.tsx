@@ -20,10 +20,10 @@ export function ProjectDetail({ project, locale = "es" }: { project: Project; lo
       </section>
       <section className="py-16 sm:py-24">
         <Container>
-          <ProjectVisual image={project.image} title={project.title} featured />
-          {project.screenshots && project.screenshots.length > 0 && (
+          <ProjectVisual image={project.image} title={project.title} featured locale={locale} />
+          {copy.screenshots && copy.screenshots.length > 0 && (
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {project.screenshots.map((screenshot, index) => (
+              {copy.screenshots.map((screenshot, index) => (
                 <figure key={screenshot.src} className={index === 0 ? "md:col-span-2" : ""}>
                   <div className="relative overflow-hidden rounded-2xl border border-line bg-white">
                     <Image src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} className="h-auto w-full" sizes="(max-width: 768px) 100vw, 50vw" />
