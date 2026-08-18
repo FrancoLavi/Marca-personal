@@ -20,4 +20,14 @@ export type Project = {
   liveUrl?: string;
   repositoryUrl?: string;
   featured: boolean;
+  translations?: Partial<Record<"en" | "es", ProjectTranslation>>;
+};
+
+export type ProjectTranslation = {
+  shortDescription?: string;
+  description?: string;
+  category?: string;
+  problem?: string;
+  solution?: string;
+  features?: string[];
 };

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { headers } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,15 +11,13 @@ export const metadata: Metadata = {
   description: "Desarrollo soluciones digitales a medida para personas, profesionales y empresas.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const locale = (await headers()).get("x-site-locale") === "es" ? "es" : "en";
   return (
-    <html lang="es">
+    <html lang={locale}>
       <body>
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

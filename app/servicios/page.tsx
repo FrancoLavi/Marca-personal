@@ -6,6 +6,6 @@ import { TechnologiesSection } from "@/components/sections/services/Technologies
 
 export const metadata = { title: "Servicios" };
 
-export default function ServicesPage() {
-  return <><ServicesHero /><ServicesListSection /><ApproachSection /><TechnologiesSection /><ServicesCta /></>;
+export default function ServicesPage({ locale = "es" }: { locale?: "en" | "es" }) {
+  return <><ServicesHero locale={locale} /><ServicesListSection locale={locale} /><ApproachSection locale={locale} /><TechnologiesSection locale={locale} /><ServicesCta locale={locale} /></>;
 }

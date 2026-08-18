@@ -4,6 +4,6 @@ import { ProcessSection } from "@/components/sections/home/ProcessSection";
 import { ProjectsSection } from "@/components/sections/home/ProjectsSection";
 import { ServicesSection } from "@/components/sections/home/ServicesSection";
 
-export default function HomePage() {
-  return <><HeroSection /><ServicesSection /><ProjectsSection /><ProcessSection /><FinalCtaSection /></>;
+export default function HomePage({ locale = "es" }: { locale?: "en" | "es" }) {
+  return <><HeroSection locale={locale} /><ServicesSection locale={locale} /><ProjectsSection locale={locale} /><ProcessSection locale={locale} /><FinalCtaSection locale={locale} /></>;
 }

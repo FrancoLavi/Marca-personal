@@ -4,7 +4,7 @@ import { ProjectDetail } from "@/components/sections/projects/ProjectDetail";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { ProjectsCta } from "@/components/sections/projects/ProjectsCta";
 
-type ProjectPageProps = { params: Promise<{ slug: string }> };
+type ProjectPageProps = { params: Promise<{ slug: string }>; locale?: "en" | "es" };
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return project ? { title: project.title, description: project.shortDescription } : { title: "Proyecto no encontrado" };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params, locale = "es" }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
-  return <><ProjectDetail project={project} /><ProjectsCta /></>;
+  return <><ProjectDetail project={project} locale={locale} /><ProjectsCta locale={locale} /></>;
 }

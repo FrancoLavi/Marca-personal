@@ -18,6 +18,14 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://erclav-ecommerce.vercel.app/",
     featured: true,
+    translations: { en: {
+      shortDescription: "A full-stack e-commerce platform built from the ground up, with catalog, cart, online payments, and administration tools.",
+      description: "An e-commerce solution designed to centralize the shopping experience and the business's core operations in a modern platform.",
+      category: "E-commerce / Web application",
+      problem: "Create a solution that allows a business to manage and sell products online from a modern, centralized platform.",
+      solution: "A full-stack application that connects the customer's shopping experience with the tools needed to manage products, orders, and payments.",
+      features: ["Product catalog", "Shopping cart", "Product management", "Order management", "Online payments", "Admin dashboard", "Image management", "Responsive design"],
+    } },
   },
   {
     slug: "sicapsi",
@@ -32,6 +40,14 @@ export const projects: Project[] = [
     image: "/projects/sicapsi-home.jpg",
     repositoryUrl: "https://github.com/Instituto-Superior-Juan-XXIII/SICaPSI",
     featured: false,
+    translations: { en: {
+      shortDescription: "A training platform for private security agents in the Province of Buenos Aires.",
+      description: "A full-stack system developed by Franco and his team to support the training of private security agents through content, simulations, and performance tracking.",
+      category: "Education platform / Custom software",
+      problem: "Create a tool to organize training and clearly and consistently evaluate how agents perform in different security scenarios.",
+      solution: "A platform with lectures, learning materials, explorable environments, interactive simulations, performance reports, and management and communication tools.",
+      features: ["Secure access and account recovery", "Lectures and learning materials", "Free exploration of scenarios", "Interactive simulations", "Progress tracking", "Performance reports", "Messaging and notifications", "User and content management"],
+    } },
   },
   {
     slug: "steamquest",
@@ -48,6 +64,14 @@ export const projects: Project[] = [
       { src: "/projects/steamquest-dashboard.png", alt: "Pantalla principal de SteamQuest con recomendaciones y misiones para explorar una biblioteca de Steam.", width: 1729, height: 910 },
     ],
     featured: false,
+    translations: { en: {
+      shortDescription: "A web application that helps people rediscover their Steam library through recommendations and small missions.",
+      description: "A web experience for exploring a Steam library, understanding gaming habits, and deciding what to play next through explainable recommendations.",
+      category: "Web application / API integration",
+      problem: "A large library can make it difficult to decide what to play, return to unfinished titles, or discover forgotten games.",
+      solution: "An application that combines Steam data with transparent recommendation rules, library filters, recent activity, achievements, and missions to make the library easier to explore.",
+      features: ["Steam profile lookup", "Library and recent activity", "Explainable recommendations", "Filters and sorting", "Accessible roulette", "Progress and achievements", "Saved missions", "Private profile handling"],
+    } },
   },
 ];
 

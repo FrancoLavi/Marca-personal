@@ -6,8 +6,8 @@ import { ProjectsHero } from "@/components/sections/projects/ProjectsHero";
 
 export const metadata = { title: "Proyectos" };
 
-export default function ProjectsPage() {
+export default function ProjectsPage({ locale = "es" }: { locale?: "en" | "es" }) {
   const featuredProject = featuredProjects[0];
   const otherProjects = projects.filter((project) => project.slug !== featuredProject?.slug);
-  return <><ProjectsHero />{featuredProject && <FeaturedProjectSection project={featuredProject} />}<MoreProjectsSection projects={otherProjects} /><ProjectsCta /></>;
+  return <><ProjectsHero locale={locale} />{featuredProject && <FeaturedProjectSection project={featuredProject} locale={locale} />}<MoreProjectsSection projects={otherProjects} locale={locale} /><ProjectsCta locale={locale} /></>;
 }

@@ -9,6 +9,6 @@ import { ProfessionalIntroSection } from "@/components/sections/about/Profession
 
 export const metadata = { title: "Sobre mí" };
 
-export default function AboutPage() {
-  return <><AboutHero /><IntroductionSection /><ProfessionalIntroSection /><ExperienceSection /><PrinciplesSection /><EducationSection /><AboutTechnologiesSection /><AboutCta /></>;
+export default function AboutPage({ locale = "es" }: { locale?: "en" | "es" }) {
+  return <><AboutHero locale={locale} /><IntroductionSection locale={locale} /><ProfessionalIntroSection locale={locale} /><ExperienceSection locale={locale} /><PrinciplesSection locale={locale} /><EducationSection locale={locale} /><AboutTechnologiesSection locale={locale} /><AboutCta locale={locale} /></>;
 }
