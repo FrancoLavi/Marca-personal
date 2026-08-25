@@ -1,7 +1,14 @@
-import Link from "next/link";
-import { Container } from "@/components/ui/Container";
+import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export function ServicesCta({ locale = "es" }: { locale?: "en" | "es" }) {
   const en = locale === "en";
-  return <section className="py-20 sm:py-28"><Container><div className="relative overflow-hidden rounded-3xl bg-ink px-6 py-14 sm:px-12 sm:py-16"><div className="absolute -right-16 -top-20 h-64 w-64 rounded-full border border-white/10" /><div className="absolute -right-2 top-4 h-36 w-36 rounded-full border border-white/10" /><div className="relative max-w-2xl"><p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#75c7bb]">{en ? "Let's talk" : "Hablemos"}</p><h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">{en ? "Do you have a project in mind?" : "¿Tenés un proyecto en mente?"}</h2><p className="mt-5 max-w-xl text-base leading-7 text-white/65">{en ? "Tell me what you need, what problem you want to solve, or what idea you want to develop. We can explore the best way to move it forward." : "Contame qué necesitás, qué problema querés resolver o qué idea querés desarrollar. Podemos analizar cuál es la mejor forma de llevarlo adelante."}</p><Link href={`/${locale}/contacto`} className="mt-8 inline-flex items-center rounded-full bg-[#eaf4f1] px-6 py-3.5 text-sm font-semibold text-[#071512] transition-colors hover:bg-[#70d1bf]">{en ? "Tell me about your project" : "Contame tu proyecto"} <span className="ml-2" aria-hidden="true">→</span></Link></div></div></Container></section>;
+  return (
+    <CtaBanner
+      locale={locale}
+      eyebrow={en ? "Let's talk" : "Hablemos"}
+      title={en ? "Do you have a project in mind?" : "¿Tenés un proyecto en mente?"}
+      description={en ? "Tell me what you need, what problem you want to solve, or what idea you want to develop. We can explore the best way to move it forward." : "Contame qué necesitás, qué problema querés resolver o qué idea querés desarrollar. Podemos analizar cuál es la mejor forma de llevarlo adelante."}
+      cta={en ? "Tell me about your project" : "Contame tu proyecto"}
+    />
+  );
 }

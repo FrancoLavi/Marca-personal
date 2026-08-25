@@ -5,6 +5,16 @@ export type ProjectScreenshot = {
   height: number;
 };
 
+export type ProjectMetric = {
+  value: string;
+  label: string;
+};
+
+export type ProjectImpact = {
+  summary: string;
+  metrics: ProjectMetric[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -13,6 +23,7 @@ export type Project = {
   category: string;
   problem: string;
   solution: string;
+  impact?: ProjectImpact;
   features: string[];
   technologies: string[];
   image: string;
@@ -29,5 +40,6 @@ export type ProjectTranslation = {
   category?: string;
   problem?: string;
   solution?: string;
+  impact?: ProjectImpact;
   features?: string[];
 };

@@ -8,5 +8,11 @@ const iconPaths: Record<ServiceIconName, string> = {
 };
 
 export function ServiceIcon({ name }: { name: ServiceIconName }) {
-  return <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#163a35] text-accent transition-[transform,background-color] duration-300 group-hover:rotate-3 group-hover:scale-105 group-hover:bg-[#1b4b43]" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d={iconPaths[name]} /></svg></span>;
+  return (
+    <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-line bg-canvas text-accent transition-[transform,border-color] duration-300 group-hover:-rotate-3 group-hover:border-accent/40" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+        <path d={iconPaths[name]} />
+      </svg>
+    </span>
+  );
 }

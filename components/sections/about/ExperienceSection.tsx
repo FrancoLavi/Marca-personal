@@ -6,5 +6,22 @@ const experiencePoints = ["Análisis y resolución de problemas", "Comprensión 
 export function ExperienceSection({ locale = "es" }: { locale?: "en" | "es" }) {
   const en = locale === "en";
   const points = en ? ["Problem analysis and resolution", "Understanding business processes", "Working with SQL databases", "Analyzing errors and application behavior", "Communication with users", "Collaboration with technical teams", "Following issues through to resolution"] : experiencePoints;
-  return <section className="border-y border-line bg-surface py-20 sm:py-28"><Container><div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-24"><SectionHeading eyebrow={en ? "Experience" : "Experiencia"} title={en ? "Experience working with software in production" : "Experiencia trabajando con software en producción"} description={en ? "I worked at Grupo Aoniken, a company that provides management software for gas stations." : "Trabajé en Grupo Aoniken, una empresa que brinda software de gestión para estaciones de servicio."} /><div><p className="text-base leading-8 text-muted sm:text-lg">{en ? "The system manages different areas of a gas station's operation, including fuel sales and shop-related processes. Working with software used daily by real customers helped me understand the impact of problems and the importance of following them until a solution is found." : "El sistema permite gestionar diferentes áreas de la operación de una estación de servicio, incluyendo procesos relacionados con la venta de combustibles y la gestión del shop. Trabajar con software utilizado diariamente por clientes reales me ayudó a entender el impacto que tienen los problemas y la importancia de seguirlos hasta encontrar una solución."}</p><p className="mt-5 text-base leading-8 text-muted sm:text-lg">{en ? "That experience is part of how I develop today: with attention to context, data, and the people who need the system to work." : "Esa experiencia forma parte de la manera en que desarrollo hoy: con atención al contexto, a los datos y a las personas que necesitan que el sistema funcione."}</p><ul className="mt-8 grid gap-3 sm:grid-cols-2">{points.map((point) => <li key={point} className="flex gap-3 text-sm leading-6 text-ink"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{point}</li>)}</ul></div></div></Container></section>;
+  return (
+    <section className="border-y border-line bg-surface py-20 sm:py-28">
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-24">
+          <SectionHeading
+            eyebrow={en ? "Experience" : "Experiencia"}
+            title={en ? "Experience working with software in production" : "Experiencia trabajando con software en producción"}
+            description={en ? "I worked at Grupo Aoniken, a company that provides management software for gas stations." : "Trabajé en Grupo Aoniken, una empresa que brinda software de gestión para estaciones de servicio."}
+          />
+          <div>
+            <p className="text-base leading-8 text-muted sm:text-lg">{en ? "The system manages different areas of a gas station's operation, including fuel sales and shop-related processes. Working with software used daily by real customers helped me understand the impact of problems and the importance of following them until a solution is found." : "El sistema permite gestionar diferentes áreas de la operación de una estación de servicio, incluyendo procesos relacionados con la venta de combustibles y la gestión del shop. Trabajar con software utilizado diariamente por clientes reales me ayudó a entender el impacto que tienen los problemas y la importancia de seguirlos hasta encontrar una solución."}</p>
+            <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{en ? "That experience is part of how I develop today: with attention to context, data, and the people who need the system to work." : "Esa experiencia forma parte de la manera en que desarrollo hoy: con atención al contexto, a los datos y a las personas que necesitan que el sistema funcione."}</p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">{points.map((point) => <li key={point} className="flex gap-3 text-sm leading-6 text-ink"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{point}</li>)}</ul>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
 }
