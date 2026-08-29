@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #0c0c0e;
+  --foreground: #f4f1ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(242, 166, 61, 0.6);
+  outline-offset: 3px;
+}
+
+/* `ink` doubles as the light foreground text color and, on bg-ink, the darkest
+   punch-block surface used for contrast cards. Tailwind can't split one token
+   across two prefixes, so bg-ink is repainted here. */
+.bg-ink {
+  background-color: #050505;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(244, 241, 234, 0.16) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink-caret {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes process-line {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.motion-rise-in {
+  animation: rise-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-delay-1 {
+  animation-delay: 120ms;
+}
+
+.motion-delay-2 {
+  animation-delay: 220ms;
+}
+
+.motion-caret {
+  animation: blink-caret 1s step-end infinite;
+}
+
+.motion-process-line {
+  animation: process-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) 250ms both;
+}
+
+.motion-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-rise-in,
+  .motion-caret,
+  .motion-process-line,
+  .motion-float-slow {
+    animation: none;
+  }
+}
