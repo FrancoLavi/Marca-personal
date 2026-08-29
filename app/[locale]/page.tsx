@@ -1,6 +1,6 @@
-import HomePage from "@/app/page";
+import { HomePageContent } from "@/components/pages/HomePageContent";
 
 export default async function LocalizedHomePage({ params }: { params: Promise<{ locale: "en" | "es" }> }) {
   const { locale } = await params;
-  return <HomePage locale={locale} />;
+  return <HomePageContent locale={locale} />;
 }
