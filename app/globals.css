@@ -185,3 +185,23 @@ article.group > a:focus-visible {
     transition: none;
   }
 }
+
+/* Process timeline: a quiet active-state treatment that rewards exploration. */
+.motion-process-line {
+  box-shadow: 0 0 12px rgba(242, 166, 61, 0.55);
+}
+
+div[class*="md:grid-cols-4"] > article {
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), border-color 450ms ease;
+}
+
+div[class*="md:grid-cols-4"] > article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(242, 166, 61, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  div[class*="md:grid-cols-4"] > article {
+    transition: none;
+  }
+}
