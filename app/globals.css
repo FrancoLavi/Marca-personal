@@ -150,3 +150,10 @@ textarea:focus-visible {
     opacity: 1;
   }
 }
+
+/* Keep the page scrollable while keeping the visual system clean. */
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar { display: none; }

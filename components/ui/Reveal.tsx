@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type RevealProps = {
   children: ReactNode;
@@ -12,29 +16,33 @@ type RevealProps = {
 
 export function Reveal({ children, className, delay = 0, direction = "up" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-  const [revealed, setRevealed] = useState(false);
 
-  useEffect(() => {
-    setReady(true);
+  useLayoutEffect(() => {
+    const element = ref.current;
+    if (!element) return;
 
-    if (!ref.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setRevealed(true);
-      return;
-    }
+    const context = gsap.context(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const distance = direction === "up" ? { y: 34 } : direction === "left" ? { x: 34 } : { x: -34 };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setRevealed(true);
-        observer.disconnect();
+      if (reduceMotion) {
+        gsap.set(element, { opacity: 1, x: 0, y: 0 });
+        return;
       }
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
 
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+      gsap.fromTo(element, { opacity: 0, ...distance }, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 0.85,
+        delay: delay / 1000,
+        ease: "power3.out",
+        scrollTrigger: { trigger: element, start: "top 86%", once: true },
+      });
+    }, element);
 
-  const style = { "--reveal-delay": `${delay}ms` } as CSSProperties;
+    return () => context.revert();
+  }, [delay, direction]);
 
-  return <div ref={ref} style={style} data-reveal-ready={ready} data-revealed={revealed} data-reveal-direction={direction} className={cn("reveal", className)}>{children}</div>;
+  return <div ref={ref} className={cn("reveal", className)}>{children}</div>;
 }
