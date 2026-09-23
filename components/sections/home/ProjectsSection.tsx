@@ -16,8 +16,11 @@ export function ProjectsSection({ locale = "es" }: { locale?: "en" | "es" }) {
           <SectionHeading eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
           <Link href={`/${locale}/proyectos`} className="shrink-0 text-sm font-semibold text-accent hover:text-ink">{copy.link} <span aria-hidden="true">→</span></Link>
         </div>
+        <Reveal direction="left">
         <div className="mt-12 grid gap-6 lg:grid-cols-3">{featuredProjects.map((project) => <ProjectCard key={project.slug} project={project} locale={locale} />)}</div>
+        </Reveal>
       </Container>
     </section>
   );
 }
+import { Reveal } from "@/components/ui/Reveal";

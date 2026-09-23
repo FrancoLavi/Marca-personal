@@ -23,15 +23,18 @@ export function ServicesSection({ locale = "es" }: { locale?: "en" | "es" }) {
           <Link href={`/${locale}/servicios`} className="group shrink-0 text-sm font-semibold text-accent transition-colors hover:text-ink">{copy.link} <span className="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span></Link>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {copy.services.map((service) => (
-            <article key={service.title} className="group relative overflow-hidden rounded-xl border border-line bg-card p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent/40">
+          {copy.services.map((service, index) => (
+            <Reveal key={service.title} delay={index * 80}>
+            <article className="group relative h-full overflow-hidden rounded-xl border border-line bg-card p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_45px_rgba(0,0,0,0.18)]">
               <ServiceIcon name={service.icon} />
               <h3 className="mt-6 text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-accent">{service.title}</h3>
               <p className="mt-3 text-sm leading-6 text-muted">{service.description}</p>
             </article>
+            </Reveal>
           ))}
         </div>
       </Container>
     </section>
   );
 }
+import { Reveal } from "@/components/ui/Reveal";

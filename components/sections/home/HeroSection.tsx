@@ -10,6 +10,8 @@ export function HeroSection({ locale = "es" }: { locale?: "en" | "es" }) {
   return (
     <section className="relative overflow-hidden border-b border-line">
       <div className="bg-dot-grid pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl ambient-drift" aria-hidden="true" />
+      <div className="pointer-events-none absolute left-[54%] top-1/2 hidden h-44 w-44 rounded-full border border-accent/10 lg:block ambient-orbit" aria-hidden="true"><span className="absolute -right-1 top-1/2 h-2 w-2 rounded-full bg-accent shadow-[0_0_22px_6px_rgba(242,166,61,0.35)]" /></div>
       <Container className="relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:py-24">
         <div className="relative z-10 motion-rise-in">
           <p className="mb-5 flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
@@ -36,6 +38,7 @@ export function HeroSection({ locale = "es" }: { locale?: "en" | "es" }) {
 function HeroVisual({ status, statusDetail }: { status: string; statusDetail: string }) {
   return (
     <div className="relative mx-auto w-full max-w-[420px] motion-float-slow" aria-label="Editor de código mostrando la idea de un proyecto" role="img">
+      <div className="absolute -inset-5 rounded-[2rem] border border-accent/10" aria-hidden="true" />
       <div className="relative overflow-hidden rounded-2xl border border-line bg-card shadow-soft">
         <div className="flex items-center gap-2 border-b border-line bg-canvas px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff6159]" />
