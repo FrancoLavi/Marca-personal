@@ -157,3 +157,31 @@ html {
 }
 
 html::-webkit-scrollbar { display: none; }
+
+/* Premium interaction layer for project cards and the sticky navigation. */
+header.sticky {
+  box-shadow: 0 1px 0 rgba(244, 241, 234, 0.04);
+  transition: box-shadow 300ms ease, background-color 300ms ease;
+}
+
+article.group > a {
+  display: block;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+article.group:hover > a {
+  transform: translateY(-5px);
+}
+
+article.group > a:focus-visible {
+  border-radius: 0.75rem;
+  outline: 2px solid rgba(242, 166, 61, 0.7);
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.sticky,
+  article.group > a {
+    transition: none;
+  }
+}
