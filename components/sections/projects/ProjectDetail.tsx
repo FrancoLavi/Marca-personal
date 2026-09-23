@@ -4,12 +4,14 @@ import type { Project } from "@/types/project";
 import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { Container } from "@/components/ui/Container";
 import { getLocalizedProject } from "@/lib/project-i18n";
+import { ProjectStructuredData } from "@/components/seo/StructuredData";
 
 export function ProjectDetail({ project, locale = "es" }: { project: Project; locale?: "en" | "es" }) {
   const en = locale === "en";
   const copy = getLocalizedProject(project, locale);
   return (
     <>
+      <ProjectStructuredData project={project} locale={locale} />
       <section className="border-b border-line bg-surface">
         <Container className="py-16 sm:py-20 lg:py-24">
           <Link href={`/${locale}/proyectos`} className="text-sm font-semibold text-accent hover:text-ink">← {en ? "Back to projects" : "Volver a proyectos"}</Link>
