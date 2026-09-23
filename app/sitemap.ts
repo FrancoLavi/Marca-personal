@@ -3,7 +3,7 @@ import { projects } from "@/data/projects";
 import { absoluteUrl } from "@/lib/seo";
 
 const locales = ["es", "en"] as const;
-const pages = ["", "/servicios", "/proyectos", "/sobre-mi", "/contacto"];
+const pages = ["", "/servicios", "/proyectos", "/sobre-mi", "/contacto", "/privacidad", "/terminos", "/cookies"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const localizedPages = locales.flatMap((locale) => pages.map((page) => ({

@@ -1,8 +1,9 @@
 import { ContactForm } from "@/components/contact/ContactForm";
+import { PrivacyNotice } from "@/components/contact/PrivacyNotice";
 import { ContactHero } from "@/components/sections/contact/ContactHero";
 import { ContactIntro } from "@/components/sections/contact/ContactIntro";
 import { Container } from "@/components/ui/Container";
 
 export function ContactPageContent({ locale = "es" }: { locale?: "en" | "es" }) {
-  return <><ContactHero locale={locale} /><section className="py-16 sm:py-24"><Container><div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20"><ContactIntro locale={locale} /><ContactForm locale={locale} /></div></Container></section></>;
+  return <><ContactHero locale={locale} /><section className="py-16 sm:py-24"><Container><div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20"><ContactIntro locale={locale} /><div><ContactForm locale={locale} /><PrivacyNotice locale={locale} /></div></div></Container></section></>;
 }

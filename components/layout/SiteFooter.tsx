@@ -10,6 +10,7 @@ export function SiteFooter({ locale }: { locale: "en" | "es" }) {
   const contactLabel = locale === "en" ? "Contact" : "Contacto";
   const emailLabel = "Email";
 
+  const legalLinks = locale === "en" ? [{ label: "Privacy", href: "/privacidad" }, { label: "Terms", href: "/terminos" }, { label: "Cookies", href: "/cookies" }] : [{ label: "Privacidad", href: "/privacidad" }, { label: "Términos", href: "/terminos" }, { label: "Cookies", href: "/cookies" }];
   return (
     <footer className="border-t border-line bg-canvas">
       <Container className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
@@ -21,6 +22,7 @@ export function SiteFooter({ locale }: { locale: "en" | "es" }) {
           <Link href={`/${locale}/contacto`} className="font-medium text-accent transition-colors hover:text-ink">{contactLabel}</Link>
           {whatsappHref && <TrackedLink href={whatsappHref} external eventName="click_whatsapp" target="_blank" rel="noreferrer" className="font-medium text-accent transition-colors hover:text-ink">WhatsApp</TrackedLink>}
           {contactChannels.email && <a href={`mailto:${contactChannels.email}`} className="font-medium text-accent transition-colors hover:text-ink">{emailLabel}</a>}
+          {legalLinks.map((item) => <Link key={item.href} href={"/" + locale + item.href} className="text-muted transition-colors hover:text-ink">{item.label}</Link>)}
         </div>
       </Container>
     </footer>

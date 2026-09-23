@@ -5,7 +5,7 @@ export const siteUrl = "https://franco-lavirgen-web.vercel.app";
 export const siteName = "Franco Lavirgen";
 
 type Locale = "en" | "es";
-type PageKey = "home" | "services" | "projects" | "about" | "contact";
+type PageKey = "home" | "services" | "projects" | "about" | "contact" | "privacy" | "terms" | "cookies";
 
 const pageCopy: Record<Locale, Record<PageKey, { title: string; description: string }>> = {
   es: {
@@ -14,6 +14,9 @@ const pageCopy: Record<Locale, Record<PageKey, { title: string; description: str
     projects: { title: "Proyectos de software y aplicaciones web", description: "Una selección de proyectos de e-commerce, plataformas de capacitación, integraciones y aplicaciones web." },
     about: { title: "Sobre Franco Lavirgen", description: "Conocé a Franco Lavirgen, desarrollador de software enfocado en crear soluciones digitales claras, útiles y a medida." },
     contact: { title: "Contacto", description: "Contame sobre tu idea, proceso o proyecto y analicemos juntos la mejor forma de convertirlo en una solución digital." },
+    privacy: { title: "Política de privacidad", description: "Conocé cómo se reciben, utilizan y protegen los datos enviados a través del sitio de Franco Lavirgen." },
+    terms: { title: "Términos de uso", description: "Condiciones generales para utilizar el sitio y consultar los servicios de desarrollo de software." },
+    cookies: { title: "Política de cookies", description: "Información sobre la cookie funcional de idioma y las herramientas de medición utilizadas en el sitio." },
   },
   en: {
     home: { title: "Tailored software development", description: "I build websites, applications, and custom software for professionals, startups, and businesses." },
@@ -21,6 +24,9 @@ const pageCopy: Record<Locale, Record<PageKey, { title: string; description: str
     projects: { title: "Software and web application projects", description: "A selection of e-commerce, training platforms, integrations, and web applications." },
     about: { title: "About Franco Lavirgen", description: "Meet Franco Lavirgen, a software developer focused on building clear, useful, tailored digital solutions." },
     contact: { title: "Contact", description: "Tell me about your idea, process, or project and let’s explore the best way to turn it into a digital solution." },
+    privacy: { title: "Privacy policy", description: "Learn how information sent through Franco Lavirgen's website is received, used, and protected." },
+    terms: { title: "Terms of use", description: "General conditions for using the site and inquiring about software development services." },
+    cookies: { title: "Cookie policy", description: "Information about the functional language cookie and measurement tools used on the site." },
   },
 };
 

@@ -9,6 +9,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swa
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://franco-lavirgen-web.vercel.app"),
+  authors: [{ name: "Franco Lavirgen", url: "https://franco-lavirgen-web.vercel.app" }],
+  creator: "Franco Lavirgen",
+  publisher: "Franco Lavirgen",
+  robots: { index: true, follow: true },
+  category: "technology",
+  classification: "Software development services",
   title: {
     default: "Franco Lavirgen | Software Developer",
     template: "%s | Franco Lavirgen",
