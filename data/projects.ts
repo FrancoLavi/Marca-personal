@@ -2,6 +2,28 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    slug: "ai-support-crew",
+    title: "AI Support Crew",
+    shortDescription: "Un sistema multiagente educativo para analizar incidentes técnicos, estudiar logs y proponer resoluciones con escalamiento.",
+    description: "AI Support Crew es una pipeline de soporte técnico construida con Python y CrewAI. Coordina agentes especializados en triage, análisis de logs y resolución para transformar un incidente en una respuesta estructurada y verificable.",
+    category: "IA / Automatización de soporte",
+    problem: "Los incidentes técnicos exigen reunir información de distintas fuentes, clasificar su severidad y decidir rápidamente cuándo resolver o escalar. Sin contratos claros entre etapas, la automatización se vuelve difícil de probar, mantener y extender.",
+    solution: "Desarrollé un flujo multiagente secuencial con modelos Pydantic como contratos entre etapas. El sistema carga el incidente, reúne contexto de logs, métricas y estado del servicio, ejecuta triage, analiza posibles causas y genera una resolución. Los incidentes de mayor severidad siguen además una ruta explícita de escalamiento.",
+    features: ["Triage de incidentes", "Análisis de logs y métricas", "Agentes especializados con CrewAI", "Tasks con salidas tipadas", "Tools para consultar contexto", "Memoria local de incidentes", "Flujo con asyncio", "Ruteo por severidad", "Reintentos provider-aware", "Ejecución reproducible con Docker"],
+    technologies: ["Python", "CrewAI", "Pydantic", "LiteLLM", "Gemini", "Amazon Bedrock", "asyncio", "pytest", "Docker"],
+    image: "bg-gradient-to-br from-[#081b29] via-[#0d5261] to-[#f0a44b]",
+    repositoryUrl: "https://github.com/FrancoLavi/ai-support-crew",
+    featured: false,
+    translations: { en: {
+      shortDescription: "An educational multi-agent system for analyzing technical incidents, studying logs, and proposing escalated resolutions.",
+      description: "AI Support Crew is a technical support pipeline built with Python and CrewAI. It coordinates specialized triage, log analysis, and resolution agents to turn an incident into a structured and verifiable response.",
+      category: "AI / Support automation",
+      problem: "Technical incidents require gathering information from different sources, classifying severity, and deciding quickly when to resolve or escalate. Without clear contracts between stages, automation becomes difficult to test, maintain, and extend.",
+      solution: "I built a sequential multi-agent flow with Pydantic models as contracts between stages. The system loads an incident, gathers context from logs, metrics, and service status, runs triage, analyzes possible causes, and generates a resolution. Higher-severity incidents also follow an explicit escalation path.",
+      features: ["Incident triage", "Log and metrics analysis", "Specialized CrewAI agents", "Typed task outputs", "Context lookup tools", "Local incident memory", "Asyncio flow", "Severity-based routing", "Provider-aware retries", "Reproducible Docker execution"],
+    } },
+  },
+  {
     slug: "e-commerce-full-stack",
     title: "E-commerce Full Stack",
     shortDescription: "Mi padre, Jorge, vende puertas y ventanas desde hace 35 años, viajando por la provincia de Buenos Aires y por toda la Patagonia hasta Tierra del Fuego. Desarrollé esta tienda para que pueda vender desde casa.",
